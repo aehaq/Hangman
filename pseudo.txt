@@ -1,0 +1,48 @@
+Define the following:
+
+array of words
+array of valid letters
+array of guesses used so far = [];
+var win = 0
+var loss = 0
+var remaining guesses = 10
+var wordchoice;
+var wordonpage = [];
+
+functions:
+
+initialize
+	chooses a word from the array of words
+	empties guesses so far.
+	select random word from words array
+	set remaining guesses to 10
+	prints remaining guesses
+	print wins
+	print losses
+	write underscores with forloop
+		get length of wordchoice
+		push _ into wordonpage for each instance
+		print wordonpage
+
+onkeyup
+	check if keyinput is a valid letter (needs to be true)
+	check if keyinput is not in guesses so far (needs to be true)
+	
+		for loop (through length of wordonpage)
+			if keyinput = letter at position (i)
+				then replace that underscore with letter
+		
+		add keyup to guessesUsed
+		print guessesUsed on page
+		remaining guesses -1
+		print remaining guesses on page
+		
+	
+		after the for loop is over,
+		if indexof_ is -1
+			add 1 to win
+			initialize
+
+		if remaining guesses = 0
+			add 1 to lose
+			initialize	
