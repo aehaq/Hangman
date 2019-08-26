@@ -7,13 +7,15 @@ var targetWord, wordDisplayed, guessesLeft, lettersGuessed;
 
 var guessesElement = document.getElementById("letters-guessed");
 var displayedElement = document.getElementById("displayed-word");
-var targetElement = document.getElementById("target-word");
+// var targetElement = document.getElementById("target-word");
 
 function init() {
     guessesLeft = 10;
     lettersGuessed = [];
+    guessesElement.textContent = lettersGuessed;
     targetWord = words[Math.floor(Math.random()*words.length)];
-    targetElement.textContent = targetWord;
+    // targetElement.textContent = targetWord;
+    console.log(targetWord)
     wordProgress = "";
     for (var i = 0; i < targetWord.length; i++) {
         wordProgress += "_";
@@ -40,13 +42,14 @@ document.onkeyup = function(event) {
     if (letters.indexOf(guess) > -1 && lettersGuessed.indexOf(guess) < 0) {
         console.log("valid keystroke")
         lettersGuessed.push(guess);
+        guessesElement.textContent = lettersGuessed;
         for (var i = 0; i < targetWord.length; i++) {
             if (targetWord[i] == guess) {
                 wordProgress = wordProgress.substring(0, i) + guess + wordProgress.substring(i+1);              
             }
         }
         convertString(wordProgress)
-            
+        
         
     } else {
         // invalid guess
