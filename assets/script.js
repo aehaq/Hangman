@@ -7,14 +7,12 @@ var targetWord, wordDisplayed, guessesLeft, lettersGuessed;
 
 var guessesElement = document.getElementById("letters-guessed");
 var displayedElement = document.getElementById("displayed-word");
-// var targetElement = document.getElementById("target-word");
 
 function init() {
     guessesLeft = 10;
     lettersGuessed = [];
     guessesElement.textContent = lettersGuessed;
     targetWord = words[Math.floor(Math.random()*words.length)];
-    // targetElement.textContent = targetWord;
     console.log(targetWord)
     wordProgress = "";
     for (var i = 0; i < targetWord.length; i++) {
@@ -40,7 +38,6 @@ document.onkeyup = function(event) {
 
     // Check if guess is valid letter
     if (letters.indexOf(guess) > -1 && lettersGuessed.indexOf(guess) < 0) {
-        console.log("valid keystroke")
         lettersGuessed.push(guess);
         guessesElement.textContent = lettersGuessed;
         for (var i = 0; i < targetWord.length; i++) {
@@ -49,7 +46,6 @@ document.onkeyup = function(event) {
             }
         }
         convertString(wordProgress)
-        
         
     } else {
         // invalid guess
