@@ -65,7 +65,7 @@ document.onkeydown = function(event) {
     
 }
 
-document.onkeyup = function(event) {
+document.onkeyup = function() {
 
     if (wordProgress == targetWord) {
         alert("YOU WON!")
